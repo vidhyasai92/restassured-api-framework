@@ -26,5 +26,8 @@ Thumbs.db
 # Maven
 dependency-reduced-pom.xml
 
-# Test data (if contains sensitive info)
-# testData/*.xlsx
+# Learning files (keep local only)
+BEGINNER_GUIDE.md
+COMPLETE_EXPLANATION.md
+PROJECT_STRUCTURE.md
+WHAT_WE_BUILT.md
