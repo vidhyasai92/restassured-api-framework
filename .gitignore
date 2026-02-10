@@ -1,0 +1,30 @@
+# Compiled class files
+*.class
+target/
+bin/
+
+# Log files
+*.log
+logs/
+
+# Test reports
+reports/
+test-output/
+screenshots/
+
+# IDE files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+dependency-reduced-pom.xml
+
+# Test data (if contains sensitive info)
+# testData/*.xlsx
