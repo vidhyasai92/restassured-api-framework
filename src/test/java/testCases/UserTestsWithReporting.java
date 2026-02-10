@@ -83,10 +83,10 @@ public class UserTestsWithReporting {
         test.pass("Status code validation passed: 200");
         logger.info("User fetched successfully with status code: " + response.getStatusCode());
         
-        Assert.assertNotNull(response.jsonPath().getString("data.id"));
+        Assert.assertNotNull(response.jsonPath().getString("id"));
         test.pass("User ID is present in response");
         
-        Assert.assertNotNull(response.jsonPath().getString("data.email"));
+        Assert.assertNotNull(response.jsonPath().getString("email"));
         test.pass("Email is present in response");
         
         logger.info("========== User Fetched Successfully ==========");
@@ -125,9 +125,9 @@ public class UserTestsWithReporting {
         Response response = UserEndpoints.deleteUser(2);
         response.then().log().all();
         
-        // Validations
-        Assert.assertEquals(response.getStatusCode(), 204);
-        test.pass("Status code validation passed: 204");
+        // Validations - JSONPlaceholder returns 200 instead of 204
+        Assert.assertEquals(response.getStatusCode(), 200);
+        test.pass("Status code validation passed: 200");
         logger.info("User deleted successfully with status code: " + response.getStatusCode());
         
         logger.info("========== User Deleted Successfully ==========");
@@ -147,10 +147,7 @@ public class UserTestsWithReporting {
         test.pass("Status code validation passed: 200");
         logger.info("User list fetched successfully with status code: " + response.getStatusCode());
         
-        Assert.assertNotNull(response.jsonPath().getString("data"));
-        test.pass("User list data is not null");
-        
-        Assert.assertTrue(response.jsonPath().getList("data").size() > 0);
+        Assert.assertTrue(response.jsonPath().getList("$").size() > 0);
         test.pass("User list contains data");
         
         logger.info("========== User List Fetched Successfully ==========");

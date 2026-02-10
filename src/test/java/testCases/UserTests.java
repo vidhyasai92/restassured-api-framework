@@ -55,8 +55,8 @@ public class UserTests {
         
         // Validations
         Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        Assert.assertNotNull(response.jsonPath().getString("data.id"), "User ID should not be null");
-        Assert.assertNotNull(response.jsonPath().getString("data.email"), "Email should not be null");
+        Assert.assertNotNull(response.jsonPath().getString("id"), "User ID should not be null");
+        Assert.assertNotNull(response.jsonPath().getString("email"), "Email should not be null");
         
         System.out.println("✅ User fetched successfully!");
     }
@@ -75,7 +75,7 @@ public class UserTests {
         
         // Validations
         Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        Assert.assertNotNull(response.jsonPath().getString("updatedAt"), "Updated date should not be null");
+        // JSONPlaceholder doesn't return updatedAt, just check status code
         
         System.out.println("✅ User updated successfully!");
     }
@@ -88,8 +88,8 @@ public class UserTests {
         // Print response
         response.then().log().all();
         
-        // Validations
-        Assert.assertEquals(response.getStatusCode(), 204, "Status code should be 204");
+        // Validations - JSONPlaceholder returns 200 instead of 204
+        Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
         
         System.out.println("✅ User deleted successfully!");
     }
@@ -102,10 +102,9 @@ public class UserTests {
         // Print response
         response.then().log().all();
         
-        // Validations
+        // Validations - JSONPlaceholder returns all users, not paginated
         Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        Assert.assertNotNull(response.jsonPath().getString("data"), "User list should not be null");
-        Assert.assertTrue(response.jsonPath().getList("data").size() > 0, "User list should not be empty");
+        Assert.assertTrue(response.jsonPath().getList("$").size() > 0, "User list should not be empty");
         
         System.out.println("✅ User list fetched successfully!");
     }
