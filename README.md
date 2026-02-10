@@ -2,6 +2,8 @@
 
 REST Assured-based API automation framework for testing RESTful web services.
 
+[![API Tests](https://github.com/vidhyasai92/restassured-api-framework/actions/workflows/api-tests.yml/badge.svg)](https://github.com/vidhyasai92/restassured-api-framework/actions/workflows/api-tests.yml)
+
 ## Tech Stack
 
 - Java 11
