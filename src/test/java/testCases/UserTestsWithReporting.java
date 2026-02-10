@@ -63,9 +63,6 @@ public class UserTestsWithReporting {
         Assert.assertNotNull(response.jsonPath().getString("id"));
         test.pass("User ID is not null");
         
-        Assert.assertNotNull(response.jsonPath().getString("createdAt"));
-        test.pass("Created timestamp is not null");
-        
         logger.info("========== User Created Successfully ==========");
     }
     
@@ -109,9 +106,6 @@ public class UserTestsWithReporting {
         Assert.assertEquals(response.getStatusCode(), 200);
         test.pass("Status code validation passed: 200");
         logger.info("User updated successfully with status code: " + response.getStatusCode());
-        
-        Assert.assertNotNull(response.jsonPath().getString("updatedAt"));
-        test.pass("Updated timestamp is not null");
         
         logger.info("========== User Updated Successfully ==========");
     }

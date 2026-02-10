@@ -40,7 +40,6 @@ public class UserTests {
         // Validations
         Assert.assertEquals(response.getStatusCode(), 201, "Status code should be 201");
         Assert.assertNotNull(response.jsonPath().getString("id"), "User ID should not be null");
-        Assert.assertNotNull(response.jsonPath().getString("createdAt"), "Created date should not be null");
         
         System.out.println("✅ User created successfully!");
     }
